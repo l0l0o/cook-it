@@ -1,7 +1,4 @@
 <?php
-    // echo '<pre>';
-    // print_r($recipes);
-    // echo '<pre>';
     require_once __DIR__ . '/parts/header.php';
     $user_id = $_SESSION['id'];
 
@@ -10,6 +7,7 @@
     $request->execute();
 
     $recipes = $request->fetchAll();
+
     
 ?>
 
@@ -20,7 +18,7 @@
 </div>
 <div class="container-sm mt-4 d-flex flex-row">
     <div class="container-sm">
-        <h3>Liste des recettes</h3>
+        <h3>Livre de recettes</h3>
         <div class="container">
             <?php if(isset($recipes[0])) : ?>
             <?php foreach($recipes as $recipe) :?>
@@ -31,7 +29,7 @@
             <div class="card d-flex flex-row gap-2 mt-2" style="height:250px; overflow: hidden">
                 <img style="width: 250px; height: 250px; object-fit: cover;" src="./images/<?= $recipe['recipe_img'] ?>"
                     alt="">
-                <div class="container hide-scroll">
+                <div class="container hide-scroll" style="overflow: scroll;">
                     <div class="title mt-2">
                         <h5><?= $recipe['recipe_title'] ?></h5>
                     </div>

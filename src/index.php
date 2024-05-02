@@ -12,9 +12,9 @@
     </form>
     <a href="./signUp_page.php">Pas encore inscrit ?</a>
 
-    <?php if(isset($_GET['succes'])) :?>
+    <?php if(isset($_GET['success'])) :?>
     <div class="alert alert-success">
-        <?php echo $_GET['succes']; ?>
+        <?php echo $_GET['success']; ?>
     </div>
     <?php endif; ?>
     <?php if(isset($_GET['error'])) :?>
