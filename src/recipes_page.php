@@ -33,7 +33,10 @@
                     <?php 
                         $idCard = $recipe['recipe_id']; ?>
                     <a href="./scripts/delete_recipe.php?idCard=<?php echo htmlspecialchars($idCard) ?>">
-                        <button><i class="fa-solid fa-trash"></i></button>
+                        <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                    </a>
+                    <a href="./scripts/delete_recipe.php?idCard=<?php echo htmlspecialchars($idCard) ?>">
+                        <button class="duplicate-btn"><i class="fa-solid fa-clone"></i></button>
                     </a>
                     <div class="card d-flex flex-row gap-2 mb-2" style="height:250px;">
                         <img style="width: 250px; height: 250px; object-fit: cover;"
