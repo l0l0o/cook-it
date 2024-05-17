@@ -1,8 +1,5 @@
 <?php 
 
-//    if(isset($_GET['idCard'])){
-//        echo $_GET['idCard'];
-//    }
    $card_id = $_GET['idCard'];
 
     $connectDatabase = new PDO("mysql:host=db;dbname=wordpress","root", "admin");

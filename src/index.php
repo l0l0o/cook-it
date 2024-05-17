@@ -8,7 +8,9 @@
 
     <form action="scripts/connect_user.php" method="POST">
         <input type="text" class="form-control" placeholder="Enter pseudo" name="pseudo">
-        <input class="mt-2" type="submit">
+        <button class="mt-3 d-flex justify-content-center">
+            <input type="submit">
+        </button>
     </form>
     <a href="./signUp_page.php">Pas encore inscrit ?</a>
 

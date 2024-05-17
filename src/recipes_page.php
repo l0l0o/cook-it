@@ -16,21 +16,22 @@
     <h4>Alors ? Qu'est-ce qu'on prépare aujourd'hui ?</h4>
 
 </div>
-<div class="container-sm mt-4 d-flex flex-row">
-    <div class="container-sm">
+<div class="container mt-4 d-flex flex-row">
+    <div class="container-xl">
         <h3>Livre de recettes</h3>
         <div class="container">
+
             <?php if(isset($recipes[0])) : ?>
-            <?php
-                foreach($recipes as $recipe) :?>
+            <?php foreach($recipes as $recipe) :?>
             <?php 
-            $ingredient_list = explode(";",$recipe['recipe_ingredients'], -1);
-            $steps_list = explode(";",$recipe['recipe_steps'], -1);
-            ?>
+                $ingredient_list = explode(";",$recipe['recipe_ingredients'], -1);
+                $steps_list = explode(";",$recipe['recipe_steps'], -1);
+                ?>
+
             <div class="container d-flex flex-row justify-content-start">
                 <div class="card-container">
                     <?php 
-                    $idCard = $recipe['recipe_id']; ?>
+                        $idCard = $recipe['recipe_id']; ?>
                     <a href="./scripts/delete_recipe.php?idCard=<?php echo htmlspecialchars($idCard) ?>">
                         <button><i class="fa-solid fa-trash"></i></button>
                     </a>
@@ -73,17 +74,16 @@
 
             <?php endforeach ?>
             <?php else:  ?>
-            <h5>Ton carnet de recette est vide, tu devrais te concocter une petite recette !</h5>
+            <h6>Ton carnet de recette est vide, tu devrais te concocter une petite recette !</h6>
             <?php endif ?>
-
-
-
-
         </div>
 
+
     </div>
-    <div class="container-sm">
+
+    <div class="container-sm recipe-form">
         <h3>Ajouter une recette</h3>
+        <h6>Pense bien à lister tes ingrédients et tes étapes avec un ';' à chaque instruction !</h6>
         <form class="d-flex flex-column" action="./scripts/new_recipe.php" method="POST" enctype="multipart/form-data">
             <input class="mt-2 form-control" placeholder="Titre de la recette" type="text" name="recipe-title">
             <textarea class="mt-2 form-control" rows="5" maxlength="1056" placeholder="Ingrédients"
@@ -91,17 +91,19 @@
             <textarea class="mt-2 form-control" rows="5" maxlength="1056" placeholder="Étapes"
                 name="recipe-steps"></textarea>
             <input class="mt-2 form-control" type="file" accept="image/png, image/jpeg" name="recipe-img">
-            <button><input class="mt-3" type="submit"></button>
+            <button class="mt-3 d-flex justify-content-center"><input type="submit"></button>
         </form>
+
         <?php if(isset($_GET['success'])) :?>
         <div class="alert alert-success mt-2">
             <?php echo $_GET['success']; ?>
         </div>
         <?php endif; ?>
+
         <?php if(isset($_GET['error'])) :?>
         <div class="alert alert-danger mt-2">
             <?php echo $_GET['error']; ?>
-        </div>0
+        </div>
         <?php endif; ?>
     </div>
 

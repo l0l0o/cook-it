@@ -2,15 +2,23 @@
   display: none;
 }
 
+input {
+  border: none;
+  background: none;
+  color: white;
+  font-weight: 600;
+}
+
 button {
   height: 48px;
   border-radius: 48px;
   background-color: #e72929;
+  padding: 0 12px;
   color: white;
   border: unset;
   display: flex;
-  padding-right: 20px;
   align-items: center;
+  justify-content: center;
   transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 button:hover {
@@ -27,17 +35,9 @@ button:hover {
   position: relative;
 }
 .card-container button {
-  width: 86px !important;
-  height: 48px !important;
-  border-radius: 48px !important;
-  background-color: #e72929;
-  color: white;
-  border: unset;
-  display: flex;
+  width: 86px;
   justify-content: flex-end;
   padding-right: 20px;
-  align-items: center;
-  transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
   position: absolute;
   right: -28px;
   top: 8px;
