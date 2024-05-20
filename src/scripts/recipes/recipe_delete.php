@@ -9,6 +9,6 @@
 
     $request->execute();
 
-    header('Location:../recipes_page.php?success=Recette supprimée.')
+    header('Location:../../recipes_page.php?success=Recette supprimée.')
     
 ?>

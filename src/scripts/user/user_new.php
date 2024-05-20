@@ -13,5 +13,5 @@ if(isset($pseudo) && $pseudo !== "") {
     header("Location: ../index.php?success=Compte créé !");
 
 } else {
-    header("Location: ../sign-up.php?error=Veuillez renseigner un nom d'utilisateur");
+    header("Location: ../../sign-up.php?error=Veuillez renseigner un nom d'utilisateur");
 }

@@ -5,10 +5,14 @@
 <div class="container-sm mt-4">
     <h1>Cook It !</h1>
     <h4 class="mt-4">Inscription</h4>
-    <form action="scripts/new_user.php" method="POST">
+    <form action="scripts/user/user_new.php" method="POST">
         <input type="text" class="form-control" placeholder="Enter pseudo" name="pseudo">
-        <input class="mt-2" type="submit">
+        <button class="mt-3 d-flex justify-content-center">
+            <input type="submit">
+        </button>
     </form>
+    <a class="mt-2" href="./index.php">Déjà inscrit ?</a>
+
 
     <?php if(isset($_GET['error'])) :?>
     <div class="alert alert-danger mt-4">
