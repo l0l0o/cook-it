@@ -6,13 +6,13 @@
     <h1>Cook It !</h1>
     <h4 class="mt-4">Connexion</h4>
 
-    <form action="scripts/connect_user.php" method="POST">
+    <form action="scripts/user/user_connect.php" method="POST">
         <input type="text" class="form-control" placeholder="Enter pseudo" name="pseudo">
         <button class="mt-3 d-flex justify-content-center">
             <input type="submit">
         </button>
     </form>
-    <a href="./signUp_page.php">Pas encore inscrit ?</a>
+    <a class="mt-2" href="./signUp_page.php">Pas encore inscrit ?</a>
 
     <?php if(isset($_GET['success'])) :?>
     <div class="alert alert-success">

@@ -17,7 +17,7 @@
 
 </div>
 <div class="container mt-4 d-flex flex-row">
-    <div class="container-xl">
+    <div class="container">
         <h3>Livre de recettes</h3>
         <div class="container">
 
@@ -30,10 +30,20 @@
 
             <div class="container d-flex flex-row justify-content-start">
                 <div class="card-container">
-                    <?php 
-                        $idCard = $recipe['recipe_id']; ?>
-                    <a href="./scripts/delete_recipe.php?idCard=<?php echo htmlspecialchars($idCard) ?>">
-                        <button><i class="fa-solid fa-trash"></i></button>
+                    <?php
+                        $cardTitle = $recipe['recipe_title'];
+                        $cardIngredients = $recipe['recipe_ingredients'];
+                        $cardSteps = $recipe['recipe_steps'];
+                        $cardImg = $recipe['recipe_img'];
+                        $cardId = $recipe['recipe_id'];
+                    ?>
+
+                    <a href="./scripts/recipes/recipe_delete.php?idCard=<?php echo htmlspecialchars($cardId) ?>">
+                        <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                    </a>
+                    <a
+                        href="./scripts/recipes/recipe_duplicate.php?titleCard=<?php echo htmlspecialchars($cardTitle)?>&ingredientsCard=<?php echo htmlspecialchars($cardIngredients)?>&stepsCard=<?php echo htmlspecialchars($cardSteps)?>&imgCard=<?php echo htmlspecialchars($cardImg)?>">
+                        <button class="duplicate-btn"><i class="fa-solid fa-clone"></i></button>
                     </a>
                     <div class="card d-flex flex-row gap-2 mb-2" style="height:250px;">
                         <img style="width: 250px; height: 250px; object-fit: cover;"
@@ -81,10 +91,11 @@
 
     </div>
 
-    <div class="container-sm recipe-form">
+    <div class="container">
         <h3>Ajouter une recette</h3>
         <h6>Pense bien à lister tes ingrédients et tes étapes avec un ';' à chaque instruction !</h6>
-        <form class="d-flex flex-column" action="./scripts/new_recipe.php" method="POST" enctype="multipart/form-data">
+        <form class="d-flex flex-column" action="./scripts/recipes/recipe_new.php" method="POST"
+            enctype="multipart/form-data">
             <input class="mt-2 form-control" placeholder="Titre de la recette" type="text" name="recipe-title">
             <textarea class="mt-2 form-control" rows="5" maxlength="1056" placeholder="Ingrédients"
                 name="recipe-ingredients"></textarea>

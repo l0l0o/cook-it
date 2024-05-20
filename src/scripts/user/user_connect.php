@@ -21,7 +21,7 @@ if(isset($pseudo) && $pseudo !== "") {
         $_SESSION['id'] = $result['id'];
         $_SESSION['pseudo'] = $result['pseudo'];
         
-        header('Location: ../recipes_page.php?succes=Bienvenue brozer');
+        header('Location: ../../recipes_page.php?succes=Bienvenue brozer');
 
     }
 

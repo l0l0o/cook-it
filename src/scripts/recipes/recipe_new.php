@@ -7,7 +7,7 @@ $recipe_img = str_replace(" ", "", $_FILES['recipe-img']['name']);
 $tempname = $_FILES['recipe-img']['tmp_name'];
 $user_id = $_SESSION['id'];
 
-$folder = '../images/'.$recipe_img; 
+$folder = '../../images/'.$recipe_img; 
 
 
 if(isset($recipe_title) && $recipe_title !== "" && isset($recipe_ingredients) && $recipe_ingredients !== "" && isset($recipe_steps) && $recipe_steps !== "" && isset($recipe_img) && $recipe_img !== "") {
@@ -24,8 +24,8 @@ if(isset($recipe_title) && $recipe_title !== "" && isset($recipe_ingredients) &&
 
     $request->execute();
 
-    header("Location: ../recipes_page.php?success=Et hop une recette de plus !");
+    header("Location: ../../recipes_page.php?success=Et hop une recette de plus !");
 
 } else {
-    header("Location: ../recipes_page.php?error=Il doit manquer un élément.");
+    header("Location: ../../recipes_page.php?error=Il doit manquer un élément.");
 }

@@ -40,11 +40,15 @@ button:hover {
   padding-right: 20px;
   position: absolute;
   right: -28px;
-  top: 8px;
 }
 .card-container button:hover {
-  background-color: #c71616;
   right: -50px;
+}
+.card-container .delete-btn {
+  top: 8px;
+}
+.card-container .duplicate-btn {
+  top: 64px;
 }
 .card-container .card {
   overflow: hidden;

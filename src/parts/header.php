@@ -34,7 +34,7 @@
         <a href="./signUp_page.php">Inscription</a>
 
         <?php elseif (isset($_SESSION['pseudo'])) : ?>
-        <a href="./scripts/disconnect_user.php">Déconnexion</a>
+        <a href="./scripts/user/user_disconnect.php">Déconnexion</a>
 
         <?php endif ?>
 

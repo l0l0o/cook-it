@@ -43,12 +43,17 @@ button {
     padding-right: 20px;
     position: absolute;
     right: -28px;
-    top: 8px;
 
     &:hover {
-      background-color: darken($main-color, 10%);
       right: -50px;
     }
+  }
+  .delete-btn {
+    top: 8px;
+  }
+
+  .duplicate-btn {
+    top: 64px;
   }
 
   .card {
