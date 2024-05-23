@@ -1,7 +1,8 @@
 <?php
 $pseudo = $_POST['pseudo'];
 
-if(isset($pseudo) && $pseudo !== "") {
+if(!empty($pseudo)) {
+
     $connectDatabase = new PDO("mysql:host=db;dbname=wordpress","root", "admin");
 
     $request = $connectDatabase->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
@@ -12,8 +13,9 @@ if(isset($pseudo) && $pseudo !== "") {
 
     $result = $request ->fetch(PDO::FETCH_ASSOC);
 
-    if(!$result){
-        header('Location : ../index.php?error=Cet utilisateur n\'existe pas');
+    
+    if($result == false){
+        header('Location: ../../index.php?error=Cet utilisateur n\'existe pas');
                 
     } else {
         session_start();
@@ -27,5 +29,6 @@ if(isset($pseudo) && $pseudo !== "") {
 
 
 } else {
-    header("Location: ../index.php?error=Veuillez renseigner un nom d'utilisateur");
+    header("Location: ../../index.php?error=Veuillez renseigner un nom d'utilisateur");
 }
+var_dump($pseudo);
