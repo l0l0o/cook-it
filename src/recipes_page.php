@@ -5,6 +5,17 @@
     $connectDatabase = new PDO("mysql:host=db;dbname=wordpress","root", "admin");
     $request = $connectDatabase->prepare("SELECT * FROM recipes WHERE user_id = $user_id");
     $request->execute();
+    if(@$_GET['asc']=='true') {
+        $request = $connectDatabase->prepare("SELECT * FROM recipes WHERE user_id = $user_id ORDER BY recipe_date ASC");
+        $request->execute();
+        
+    }
+    if(@$_GET['desc']=='true') {
+        $request = $connectDatabase->prepare("SELECT * FROM recipes WHERE user_id = $user_id ORDER BY recipe_date DESC");
+        $request->execute();
+
+    }
+
 
     $recipes = $request->fetchAll();
 
@@ -16,6 +27,11 @@
     <h4>Alors ? Qu'est-ce qu'on prépare aujourd'hui ?</h4>
 
 </div>
+
+
+<a href="./recipes_page.php?asc=true"><button class="orderasc-btn"><i class="fa-solid fa-sort-up"></i></button></a>
+<a href="./recipes_page.php?desc=true"><button class="orderdesc-btn"><i class="fa-solid fa-sort-down"></i></button></a>
+
 <div class="container mt-4 d-flex flex-row">
     <div class="container">
         <h3>Livre de recettes</h3>
