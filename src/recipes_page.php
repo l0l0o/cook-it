@@ -13,7 +13,7 @@
 
 <div class="container-sm mt-4">
     <h1>Hello&nbsp;<?php echo $_SESSION['pseudo']; ?> !</h1>
-    <h4>Alors ? Qu'est-ce qu'on prépare aujourd'hui ?</h4>
+    <h4>Alors ? Qu'est-ce qu'on prépare aujourd'hui ? </h4>
 
 </div>
 <div class="container mt-4 d-flex flex-row">
@@ -45,10 +45,13 @@
                         href="./scripts/recipes/recipe_duplicate.php?titleCard=<?php echo htmlspecialchars($cardTitle)?>&ingredientsCard=<?php echo htmlspecialchars($cardIngredients)?>&stepsCard=<?php echo htmlspecialchars($cardSteps)?>&imgCard=<?php echo htmlspecialchars($cardImg)?>">
                         <button class="duplicate-btn"><i class="fa-solid fa-clone"></i></button>
                     </a>
+                    <a
+                        href="./recipes_page.php?titleCard=<?php echo htmlspecialchars($cardTitle)?>&ingredientsCard=<?php echo htmlspecialchars($cardIngredients)?>&stepsCard=<?php echo htmlspecialchars($cardSteps)?>&imgCard=<?php echo htmlspecialchars($cardImg)?>&idCard=<?php echo htmlspecialchars($cardId) ?>">
+                        <button class="modify-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                    </a>
                     <div class="card d-flex flex-row gap-2 mb-2" style="height:250px;">
-                        <img style="width: 250px; height: 250px; object-fit: cover;"
-                            src="./images/<?= $recipe['recipe_img'] ?>" alt="">
-                        <div class="container hide-scroll" style="overflow: scroll;">
+                        <img src="./images/<?= $recipe['recipe_img'] ?>" alt="">
+                        <div class="container hide-scroll">
                             <div class="title mt-2">
                                 <h5><?= $recipe['recipe_title'] ?></h5>
                             </div>
@@ -91,18 +94,31 @@
 
     </div>
 
+    <?php 
+        $card_id = @$_GET['idCard'];
+        $path = !isset($_GET['titleCard']) ? "recipe_new.php" : "recipe_modify.php?idCard=$card_id";
+        
+    ?>
+
     <div class="container">
         <h3>Ajouter une recette</h3>
-        <h6>Pense bien à lister tes ingrédients et tes étapes avec un ';' à chaque instruction !</h6>
-        <form class="d-flex flex-column" action="./scripts/recipes/recipe_new.php" method="POST"
-            enctype="multipart/form-data">
-            <input class="mt-2 form-control" placeholder="Titre de la recette" type="text" name="recipe-title">
+        <h6>Pense bien à lister tes ingrédients et tes étapes avec un ';' à la fin de chaque instruction !</h6>
+        <form action="./scripts/recipes/<?php echo $path ?>" method="POST" enctype="multipart/form-data"
+            class="d-flex flex-column">
+            <input class="mt-2 form-control" placeholder="Titre de la recette" type="text" name="recipe-title"
+                value="<?php if(isset($_GET['titleCard'])){echo $_GET['titleCard']; }?>">
+
             <textarea class="mt-2 form-control" rows="5" maxlength="1056" placeholder="Ingrédients"
-                name="recipe-ingredients"></textarea>
+                name="recipe-ingredients"><?php if(isset($_GET['ingredientsCard'])){echo $_GET['ingredientsCard']; }?></textarea>
+
             <textarea class="mt-2 form-control" rows="5" maxlength="1056" placeholder="Étapes"
-                name="recipe-steps"></textarea>
-            <input class="mt-2 form-control" type="file" accept="image/png, image/jpeg" name="recipe-img">
-            <button class="mt-3 d-flex justify-content-center"><input type="submit"></button>
+                name="recipe-steps"><?php if(isset($_GET['stepsCard'])){echo $_GET['stepsCard']; }?></textarea>
+
+            <input class="mt-2 form-control" type="file" accept="image/png, image/jpeg" name="recipe-img"
+                value="<?php if(isset($_GET['imgCard'])){echo $_GET['imgCard']; }?>">
+
+            <button class="mt-3 d-flex justify-content-center"><input type="submit"
+                    value="<?php if(!isset($_GET['titleCard'])){echo "Envoyer";}else{echo "Modifier";} ?>"></button>
         </form>
 
         <?php if(isset($_GET['success'])) :?>

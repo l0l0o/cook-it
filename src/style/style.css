@@ -39,7 +39,8 @@ button:hover {
   justify-content: flex-end;
   padding-right: 20px;
   position: absolute;
-  right: -28px;
+  right: -42px;
+  gap: 10px;
 }
 .card-container button:hover {
   right: -50px;
@@ -50,6 +51,19 @@ button:hover {
 .card-container .duplicate-btn {
   top: 64px;
 }
+.card-container .modify-btn {
+  top: 120px;
+}
 .card-container .card {
   overflow: hidden;
+}
+.card-container .card .container {
+  width: 500px;
+  height: auto;
+}
+.card-container .card img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=style.css.map */

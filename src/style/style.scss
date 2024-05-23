@@ -42,7 +42,8 @@ button {
     justify-content: flex-end;
     padding-right: 20px;
     position: absolute;
-    right: -28px;
+    right: -42px;
+    gap: 10px;
 
     &:hover {
       right: -50px;
@@ -56,13 +57,22 @@ button {
     top: 64px;
   }
 
+  .modify-btn {
+    top: 120px;
+  }
+
   .card {
     overflow: hidden;
 
     .container {
+      width: 500px;
+      height: auto;
     }
 
     img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
     }
   }
 }
